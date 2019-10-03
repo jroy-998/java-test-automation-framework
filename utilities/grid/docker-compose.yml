@@ -1,0 +1,18 @@
+hub:
+  image: selenium/hub
+  ports:
+    - "4444:4444"
+chrome-debug:
+  image: selenium/node-chrome-debug
+  environment:
+    - NODE_MAX_INSTANCES=5
+    - NODE_MAX_SESSION=5
+  links:
+    - hub
+firefox-debug:
+  image: selenium/node-firefox-debug
+  environment:
+    - NODE_MAX_INSTANCES=5
+    - NODE_MAX_SESSION=5
+  links:
+    - hub
